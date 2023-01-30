@@ -1,0 +1,135 @@
+.ordering {
+  &__widget {
+    .ordering-item__icon-correct,
+    .ordering-item__icon-incorrect {
+      display: none;
+      color: @item-color-inverted;
+    }
+
+    &.show-user-answer {
+      .is-incorrect {
+        .ordering-item__icon-incorrect {
+          display: block;
+        }
+      }
+
+      .is-correct {
+        .ordering-item__icon-correct {
+          display: block;
+        }
+      }
+    }
+
+    &.show-correct-answer {
+      .ordering-item__icon-correct {
+        display: block;
+      }
+    }
+
+    &.is-disabled {
+      .ordering-item__controls {
+        display: none;
+      }
+
+      .ordering-item {
+        background-color: @disabled;
+      }
+
+      .ordering-item__inner,
+      .ordering-item__icon-correct,
+      .ordering-item__icon-incorrect {
+        color: @disabled-inverted;
+      }
+    }
+  }
+}
+
+.ordering-item {
+  position: relative;
+  padding: @item-padding;
+  margin-bottom: @item-padding / 4;
+  min-height: @icon-size;
+
+  background-color: @item-color;
+  border-radius: @item-border-radius;
+
+  font-weight: @item-title-weight;
+
+  .no-touch &:not(.is-disabled):hover {
+    background-color: @item-color-hover;
+    .transition(background-color @duration ease-in, color @duration ease-in;);
+
+    .ordering-item__inner {
+      color: @item-color-inverted-hover;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    padding-right: (@icon-size * 2) + (@item-padding * 4);
+    text-align: left;
+    color: @item-color-inverted;
+
+    .dir-rtl & {
+      padding-right: @item-padding;
+      padding-left: (@icon-size * 2) + (@item-padding * 4);
+      text-align: right;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: @item-padding;
+    .transform(translateY(-50%));
+
+    .dir-rtl & {
+      right: inherit;
+      left: @item-padding;
+    }
+
+    .ordering-item__icon {
+      float: left;
+      .dir-rtl & {
+        float: right;
+      }
+
+      margin-left: @item-padding;
+
+      .dir-rtl & {
+        margin-left: inherit;
+        margin-right: @item-padding;
+      }
+
+      color: @item-color-inverted;
+      background-color: @item-color;
+      border-radius: 50%;
+      border: 2px solid @item-color-inverted;
+
+      &:hover {
+        color: @item-color-inverted-hover;
+        background-color: @item-color-hover;
+        border: 2px solid @item-color-inverted-hover;
+      }
+
+      &.is-disabled {
+        color: @disabled-inverted;
+        background-color: @disabled;
+        border: 2px solid @disabled-inverted;
+      }
+    }
+  }
+
+  &__state {
+    position: absolute;
+    top: 50%;
+    .transform(translateY(-50%));
+    right: @item-padding;
+
+    .dir-rtl & {
+      right: inherit;
+      left: @item-padding;
+    }
+  }
+}

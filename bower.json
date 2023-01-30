@@ -1,0 +1,16 @@
+{
+  "name": "adapt-ordering",
+  "version": "1.0.0",
+  "framework": ">=5.20.1",
+  "homepage": "https://github.com/RobertPeek/adapt-ordering",
+  "issues": "https://github.com/RobertPeek/adapt-ordering/issues/",
+  "displayName" : "Ordering Question",
+  "component" : "ordering",
+  "description": "An item ordering question component",
+  "main": "/js/adapt-ordering.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
+}

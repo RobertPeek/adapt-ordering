@@ -1,0 +1,31 @@
+<div class="component__inner ordering__inner">
+    {{> component this}}
+    <div class="component__widget ordering__widget {{#unless _isEnabled}} is-disabled {{#if _isInteractionComplete}} is-complete is-submitted show-user-answer {{#if _isCorrect}}is-correct{{/if}} {{/if}} {{/unless}}">
+      <div class="ordering__container sortable">
+        {{#each _items}}
+        <div data-itemid="{{id}}" class="ordering-item" aria-label="{{{a11y_normalize text}}}">
+          <div class="ordering-item__controls">
+            <button class="ordering-item__icon ordering-item__icon-up" aria-label="{{_globals._components._ordering.ariaUpLabel}}">
+              <span class="icon icon-controls-small-up"></span>
+            </button>
+            <button class="ordering-item__icon ordering-item__icon-down" aria-label="{{_globals._components._ordering.ariaDownLabel}}">
+              <span class="icon icon-controls-small-down"></span>
+            </button>
+          </div>
+          <div class="ordering-item__state">
+            <div class="ordering-item__icon ordering-item__icon-correct">
+              <div class="icon icon-tick"></div>
+            </div>
+            <div class="ordering-item__icon ordering-item__icon-incorrect">
+              <div class="icon icon-cross"></div>
+            </div>
+          </div>
+          <div class="ordering-item__inner">
+            {{{text}}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="btn__container"></div>
+</div>
